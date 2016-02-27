@@ -21,9 +21,7 @@
       android:gravity="center"
       android:padding="16dp"
       android:layout_width="match_parent"
-      android:layout_height="100dp"
-      android:layout_weight="0.4"
-      />
+      android:layout_height="96dp" />
 
   <Button
       android:id="@+id/select_button"
@@ -38,4 +36,4 @@
       />
 
 </LinearLayout>
-<!-- From: file:/Users/mcotse/Dropbox/git/clarifai-android-starter/app/src/main/res/layout/activity_recognition.xml -->
+<!-- From: file:/Users/mcotse/Dropbox/git/clarifind/android-app/app/src/main/res/layout/activity_recognition.xml -->
