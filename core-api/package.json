@@ -1,7 +1,7 @@
 {
-  "name": "Swapifai",
+  "name": "Clarifind",
   "version": "0.0.0",
-  "description": "Picture to song",
+  "description": "Picture based lost and found application",
   "author": "Songifai",
   "license": "WTFPL",
   "dependencies": {
