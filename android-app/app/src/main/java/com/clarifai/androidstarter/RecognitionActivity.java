@@ -32,12 +32,14 @@ public class RecognitionActivity extends Activity {
   private static final String TAG = RecognitionActivity.class.getSimpleName();
 
   private static final int CODE_PICK = 1;
+  private static final int REQUEST_IMAGE_CAPTURE = 2;
 
   private final ClarifaiClient client = new ClarifaiClient(Credentials.CLIENT_ID, Credentials.CLIENT_SECRET);
   private Button selectButton;
   private Button cameraButton;
   private ImageView imageView;
   private TextView textView;
+  private Uri fileUri;
 
 
   @Override
@@ -59,10 +61,14 @@ public class RecognitionActivity extends Activity {
 
     cameraButton.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-//        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-//          startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-//        }
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE); // create a file to save the image
+        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri); // set the image file name
+
+
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+          startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
 
 
       }
@@ -90,6 +96,28 @@ public class RecognitionActivity extends Activity {
         }.execute(bitmap);
       } else {
         textView.setText("Unable to load selected image.");
+      }
+    }
+    if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+      //user captured an image
+      Log.d(TAG, "User captured image: " + intent.getData());
+      Bitmap bitmap = loadBitmapFromUri(fileUri);
+      if (bitmap != null) {
+        imageView.setImageBitmap(bitmap);
+        textView.setText("Recognizing...");
+        selectButton.setEnabled(false);
+
+        // Run recognition on a background thread since it makes a network call.
+        new AsyncTask<Bitmap, Void, RecognitionResult>() {
+          @Override protected RecognitionResult doInBackground(Bitmap... bitmaps) {
+            return recognizeBitmap(bitmaps[0]);
+          }
+          @Override protected void onPostExecute(RecognitionResult result) {
+            updateUIForResult(result);
+          }
+        }.execute(bitmap);
+      } else {
+        textView.setText("Unable to load image.");
       }
     }
   }
