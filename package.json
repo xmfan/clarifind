@@ -6,7 +6,8 @@
   "license": "WTFPL",
   "dependencies": {
     "async": "latest",
-    "express": "latest"
+    "express": "latest",
+    "request": "latest"
   },
   "engines": {
     "node": "0.10.37"
