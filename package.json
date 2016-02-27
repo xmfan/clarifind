@@ -1,0 +1,14 @@
+{
+  "name": "Songifai",
+  "version": "0.0.0",
+  "description": "Picture to song",
+  "author": "Songifai",
+  "license": "WTFPL",
+  "dependencies": {
+    "async": "latest",
+    "express": "latest"
+  },
+  "engines": {
+    "node": "0.10.37"
+  }
+}
