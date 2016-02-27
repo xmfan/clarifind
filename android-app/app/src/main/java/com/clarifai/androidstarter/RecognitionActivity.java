@@ -100,7 +100,7 @@ public class RecognitionActivity extends Activity {
     }
     if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
       //user captured an image
-      Log.d(TAG, "User captured image: " + intent.getData());
+      //Log.d(TAG, "User captured image: " + intent.getData());
       Bitmap bitmap = loadBitmapFromUri(fileUri);
       if (bitmap != null) {
         imageView.setImageBitmap(bitmap);

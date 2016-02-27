@@ -1,5 +1,7 @@
 <resources>
-  <string name="app_name">Clarifai Starter</string>
+  <string name="app_name">Clarifind</string>
   <string name="select_image">Select Image</string>
+  <string name="capture_photo">Capture Photo</string>
   <string name="user_image">User image</string>
+
 </resources>

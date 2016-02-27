@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_weifght ="1"
             android:background="#3d88ec"
-            android:text="take picture"
+            android:text="@string/capture_photo"
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
             android:layout_margin="12dp"
