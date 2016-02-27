@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/mcotse/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/mcotse/Dropbox/git/clarifai-android-starter/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-f20734fd2faa54b54f5098a3fe04f88801f4778e.jar" />
+    </item>
+    <item
+        jar="/Users/mcotse/Dropbox/git/clarifai-android-starter/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/Users/mcotse/Dropbox/git/clarifai-android-starter/app/build/intermediates/pre-dexed/debug/classes-68d4121aaf78667c603bfeb19d3ef3352d7e675c.jar" />
+    </item>
+    <item
+        jar="/Users/mcotse/.gradle/caches/modules-2/files-2.1/com.clarifai/clarifai-api-java/1.2.0/beeed9cff42edad3f6e103dd409e80da9825a6d1/clarifai-api-java-1.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="beeed9cff42edad3f6e103dd409e80da9825a6d1">
+        <dex dex="/Users/mcotse/Dropbox/git/clarifai-android-starter/app/build/intermediates/pre-dexed/debug/clarifai-api-java-1.2.0-7b64353ee83e7a3908f39441636ad1d5a2a1cf4f.jar" />
+    </item>
+    <item
+        jar="/Users/mcotse/Dropbox/git/clarifai-android-starter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/mcotse/Dropbox/git/clarifai-android-starter/app/build/intermediates/pre-dexed/debug/classes-cd3254d5cf9c2b76cde3b3e296f6215438c7e9f1.jar" />
+    </item>
+    <item
+        jar="/Users/mcotse/Dropbox/git/clarifai-android-starter/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/mcotse/Dropbox/git/clarifai-android-starter/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-d4775eb4147c00577269671083f79f7b195cb5c3.jar" />
+    </item>
+    <item
+        jar="/Users/mcotse/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/mcotse/Dropbox/git/clarifai-android-starter/app/build/intermediates/pre-dexed/debug/gson-2.3.1-39879ff7ecb5ece1d74921e91f4f6dd28a9c46f1.jar" />
+    </item>
+
+</items>
