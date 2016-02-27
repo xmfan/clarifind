@@ -16,6 +16,7 @@ app.get('/', function(req, res) {
     function callback(error, response, body) {
         if (error) console.log(error);
         else if (response.statusCode == 401) {
+            console.log(body);
             config.requestAccessToken;
             request(options, callback);
         } else {
