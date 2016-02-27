@@ -33,28 +33,42 @@ public class RecognitionActivity extends Activity {
 
   private static final int CODE_PICK = 1;
 
-  private final ClarifaiClient client = new ClarifaiClient(Credentials.CLIENT_ID,
-      Credentials.CLIENT_SECRET);
+  private final ClarifaiClient client = new ClarifaiClient(Credentials.CLIENT_ID, Credentials.CLIENT_SECRET);
   private Button selectButton;
+  private Button cameraButton;
   private ImageView imageView;
   private TextView textView;
 
-  @Override protected void onCreate(Bundle savedInstanceState) {
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_recognition);
     imageView = (ImageView) findViewById(R.id.image_view);
     textView = (TextView) findViewById(R.id.text_view);
     selectButton = (Button) findViewById(R.id.select_button);
+    cameraButton = (Button) findViewById(R.id.camera_button);
     selectButton.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
+      @Override
+      public void onClick(View v) {
         // Send an intent to launch the media picker.
         final Intent intent = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, CODE_PICK);
       }
     });
-  }
 
-  @Override protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+    cameraButton.setOnClickListener(new View.OnClickListener() {
+      @Override public void onClick(View v) {
+//        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+//          startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+//        }
+
+
+      }
+    });
+  }
+  @Override  protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
     super.onActivityResult(requestCode, resultCode, intent);
     if (requestCode == CODE_PICK && resultCode == RESULT_OK) {
       // The user picked an image. Send it to Clarifai for recognition.
