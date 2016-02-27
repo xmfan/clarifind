@@ -210,7 +210,8 @@
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <!-- From: file:/Users/mcotse/Dropbox/git/clarifind/android-app/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="app_name">Clarifai Starter</string>
+    <string name="app_name">Clarifind</string>
+    <string name="capture_photo">Capture Photo</string>
     <string name="select_image">Select Image</string>
     <!-- From: file:/Users/mcotse/Dropbox/git/clarifind/android-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values/values.xml -->
     <eat-comment/>

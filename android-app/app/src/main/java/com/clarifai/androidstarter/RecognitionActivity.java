@@ -7,6 +7,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -20,10 +22,12 @@ import com.clarifai.api.Tag;
 import com.clarifai.api.exception.ClarifaiException;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static android.provider.MediaStore.Images.Media;
-
 
 /**
  * A simple Activity that performs recognition using the Clarifai API.
@@ -33,14 +37,15 @@ public class RecognitionActivity extends Activity {
 
   private static final int CODE_PICK = 1;
   private static final int REQUEST_IMAGE_CAPTURE = 2;
-
+  public static final int MEDIA_TYPE_IMAGE = 1;
+  public static final int MEDIA_TYPE_VIDEO = 2;
+  private String photoPath;
   private final ClarifaiClient client = new ClarifaiClient(Credentials.CLIENT_ID, Credentials.CLIENT_SECRET);
   private Button selectButton;
   private Button cameraButton;
   private ImageView imageView;
   private TextView textView;
   private Uri fileUri;
-
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -60,21 +65,45 @@ public class RecognitionActivity extends Activity {
     });
 
     cameraButton.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View v) {
+      @Override
+      public void onClick(View v) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE); // create a file to save the image
-        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri); // set the image file name
-
-
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-          startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+          File photoFile = null;
+          try {
+            photoFile = createImageFile();
+          } catch (IOException ex) {
+            // do nothing
+          }
+          // Continue only if the File was successfully created
+          if (photoFile != null) {
+            fileUri = Uri.fromFile(photoFile);
+            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+                    fileUri);
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+          }
         }
-
-
       }
     });
   }
-  @Override  protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+
+  private File createImageFile() throws IOException {
+
+    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+    String imageFileName = "JPEG_" + timeStamp + "_";
+    File storageDir = Environment.getExternalStoragePublicDirectory(
+            Environment.DIRECTORY_PICTURES);
+    File image = File.createTempFile(
+            imageFileName,  /* prefix */
+            ".jpg",         /* suffix */
+            storageDir      /* directory */
+    );
+    photoPath = "file:" + image.getAbsolutePath();
+    return image;
+  }
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
     super.onActivityResult(requestCode, resultCode, intent);
     if (requestCode == CODE_PICK && resultCode == RESULT_OK) {
       // The user picked an image. Send it to Clarifai for recognition.
@@ -87,10 +116,13 @@ public class RecognitionActivity extends Activity {
 
         // Run recognition on a background thread since it makes a network call.
         new AsyncTask<Bitmap, Void, RecognitionResult>() {
-          @Override protected RecognitionResult doInBackground(Bitmap... bitmaps) {
+          @Override
+          protected RecognitionResult doInBackground(Bitmap... bitmaps) {
             return recognizeBitmap(bitmaps[0]);
           }
-          @Override protected void onPostExecute(RecognitionResult result) {
+
+          @Override
+          protected void onPostExecute(RecognitionResult result) {
             updateUIForResult(result);
           }
         }.execute(bitmap);
@@ -99,8 +131,8 @@ public class RecognitionActivity extends Activity {
       }
     }
     if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-      //user captured an image
-      //Log.d(TAG, "User captured image: " + intent.getData());
+      // user captured an image
+      Log.d(TAG, "User captured image: " + intent.getData());
       Bitmap bitmap = loadBitmapFromUri(fileUri);
       if (bitmap != null) {
         imageView.setImageBitmap(bitmap);
@@ -109,10 +141,13 @@ public class RecognitionActivity extends Activity {
 
         // Run recognition on a background thread since it makes a network call.
         new AsyncTask<Bitmap, Void, RecognitionResult>() {
-          @Override protected RecognitionResult doInBackground(Bitmap... bitmaps) {
+          @Override
+          protected RecognitionResult doInBackground(Bitmap... bitmaps) {
             return recognizeBitmap(bitmaps[0]);
           }
-          @Override protected void onPostExecute(RecognitionResult result) {
+
+          @Override
+          protected void onPostExecute(RecognitionResult result) {
             updateUIForResult(result);
           }
         }.execute(bitmap);
@@ -122,7 +157,9 @@ public class RecognitionActivity extends Activity {
     }
   }
 
-  /** Loads a Bitmap from a content URI returned by the media picker. */
+  /**
+   * Loads a Bitmap from a content URI returned by the media picker.
+   */
   private Bitmap loadBitmapFromUri(Uri uri) {
     try {
       // The image may be large. Load an image that is sized for display. This follows best
@@ -132,7 +169,7 @@ public class RecognitionActivity extends Activity {
       BitmapFactory.decodeStream(getContentResolver().openInputStream(uri), null, opts);
       int sampleSize = 1;
       while (opts.outWidth / (2 * sampleSize) >= imageView.getWidth() &&
-             opts.outHeight / (2 * sampleSize) >= imageView.getHeight()) {
+              opts.outHeight / (2 * sampleSize) >= imageView.getHeight()) {
         sampleSize *= 2;
       }
 
@@ -145,13 +182,15 @@ public class RecognitionActivity extends Activity {
     return null;
   }
 
-  /** Sends the given bitmap to Clarifai for recognition and returns the result. */
+  /**
+   * Sends the given bitmap to Clarifai for recognition and returns the result.
+   */
   private RecognitionResult recognizeBitmap(Bitmap bitmap) {
     try {
       // Scale down the image. This step is optional. However, sending large images over the
-      // network is slow and  does not significantly improve recognition performance.
+      // network is slow and does not significantly improve recognition performance.
       Bitmap scaled = Bitmap.createScaledBitmap(bitmap, 320,
-          320 * bitmap.getHeight() / bitmap.getWidth(), true);
+              320 * bitmap.getHeight() / bitmap.getWidth(), true);
 
       // Compress the image as a JPEG.
       ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -166,7 +205,9 @@ public class RecognitionActivity extends Activity {
     }
   }
 
-  /** Updates the UI by displaying tags for the given result. */
+  /**
+   * Updates the UI by displaying tags for the given result.
+   */
   private void updateUIForResult(RecognitionResult result) {
     if (result != null) {
       if (result.getStatusCode() == RecognitionResult.StatusCode.OK) {
