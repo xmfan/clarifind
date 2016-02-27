@@ -2,7 +2,7 @@
     "name": "Clarifind",
     "version": "0.0.0",
     "description": "Picture based lost and found application",
-    "author": "Songifai",
+    "author": "Xin Ming Fan, Amy Liu, Matthew Tse",
     "license": "WTFPL",
     "dependencies": {
         "async": "latest",
