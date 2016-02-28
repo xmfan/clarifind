@@ -75,8 +75,10 @@ public class UploadService {
                         */
                         if (imageResponse.success) {
                             ClarifindRest test = new ClarifindRest();
-                            test.set();
-                            test.get();
+
+                            test.post(imageResponse.toString());
+
+                            notificationHelper.createUploadedNotification(imageResponse);
                             //Posting the URL to the Node server
 //                            OkHttpClient client = new OkHttpClient();
 //                            String post(String url, String json) throws IOException {
