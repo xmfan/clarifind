@@ -93,13 +93,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//
-//    @OnClick(R.id.imageview)
-//    public void onChooseImage() {
+
+    @OnClick(R.id.imageview)
+    public void onChooseImage() {
 //        uploadDesc.clearFocus();
 //        uploadTitle.clearFocus();
-//        IntentHelper.chooseFileIntent(this);
-//    }
+        IntentHelper.chooseFileIntent(this);
+    }
 //
 //    private void clearInput() {
 //        uploadTitle.setText("");
