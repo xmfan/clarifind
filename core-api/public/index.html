@@ -13,7 +13,7 @@
       <link href="css/main.css" rel="stylesheet">
       <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" /> -->
       <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-      <script src="script.js"></script>
+      
  
        <style>
       html, body {
@@ -22,36 +22,44 @@
         padding: 0;
       }
       #map {
-        height: 100%;
+        height: 50%;
+	margin-top: 32px;
       }
       #floating-panel {
-        position: absolute;
+        position: relative;
         top: 10px;
-        left: 25%;
+        left: 12.5%;
         z-index: 5;
         background-color: #fff;
         padding: 5px;
-        border: 1px solid #999;
+        border: 1px solid #7191d9;
         text-align: center;
-        font-family: 'Roboto','sans-serif';
+        font-family: Montserrat;
         line-height: 30px;
-        padding-left: 10px;
+        padding-left: 5px;
       }
       #floating-panel {
-        width: 440px;
+        position: relative;
+        top: 0px;
+        left: 12.5%;
+        margin-left: 0px;
+	margin-right: 0px;
+        width: 350px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 0px;
+        border: 1px solid #999;
       }
-      #place-id {
-        width: 250px;
+      #latlng {
+        width: 112px;
+      }
       }
     </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJAMSkwFh_UL1KpSoE7S0s6YzdCOyZU-0&signed_in=true"></script>
+	
    </head>
    <body>
-<div id="floating-panel">
-      <!-- Supply a default place ID for a place in Brooklyn, New York. -->
-      <input id="place-id" type="text" value="ChIJd8BlQ2BZwokRAFUEcm_qrcA">
-      <input id="submit" type="button" value="Reverse Geocode by Place ID">
-    </div>
- <div id="map"></div>
+
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
          <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -86,10 +94,22 @@
          </div>
          <!-- /.container -->
       </nav>
+
+
+	 <div id="map"></div>
+     <div id="floating-panel">
+      <input id="latlng" type="text" value="42.7018267,-84.5522118 ">
+      <input id="submit" type="button" value="Reverse Geocode">
+    </div>
+
+
       <div class="sparc">
       <div class="container">
          <div class="logoo"><img src="Images/clarifind logo.png"></div>
+
+
       </div>
+
       <header class="header-image">
          <div class="headline">
             <div class="container">
@@ -99,43 +119,46 @@
             </div>
          </div>
       </header>
+
       <!-- Page Content -->
       <div class="container">
          <hr class="featurette-divider">
          <!-- First Featurette -->
          <div class="featurette" id="backstory">
-            <img src="picturessss.png">
+            <img src="Images/20160222_230248.jpg">
             <h2 class="featurette-heading">losing is temporary
                <span class="text-muted"><span style="color: #7191d9">clari</span>find is forever</span>
             </h2>
-            <p class="lead">LOREM IPSUMLOREM IPSUM  LOREM IPSUM  LOREM IPSUM  LOREM IPSUM  LOREM IPSUM  LOREM IPSUM  LOREM IPSUM.</p>
+            <p class="lead">Clarifind recognizes the sentimental value of physical possessions, from that sweater from Grandma to that watch from Uncle Steve. Three university students decided that they wanted to end the struggle of losing personal belongings to the vast and unforgiving world of neglect and unworthy finders who pose as keepers. Users upload photos of both items they have lost and items that they have found and Clarifind matches their wanted items to items visually similuar to those others have found.</p>
          </div>
          <hr class="featurette-divider">
          <!-- Second Featurette -->
          <div class="featurette" id="technical">
             <img src="Images/clarifind logo.png">
-            <h2 class="featurette-heading">lorem ipsum
-               <span class="text-muted">more lorem ipsum</span>
+            <h2 class="featurette-heading">complex algorithms
+               <span class="text-muted">simplistic design</span>
             </h2>
-            <p class="lead"><span style="color: #7191d9">clari</span>find is an entirely open-sourced, user-friendly LOREM IPSUM DANK MEMES</p>
+            <p class="lead"><span style="color: #7191d9">clari</span>find is a user-friendly application that integrates a cohesive combination of many technologies. The web application is hosted on Firebase, which is also responsible for the databases of uploaded images of found items. Each image is processed through Clarifai which uses advanced image recognition to return similar images from the "found" database. Google Maps is harnessed to provide location data for each image, passed as a set of geographical coordinates and converted to a text-based location.</p>
          </div>
          <hr class="featurette-divider">
          <!-- Third Featurette -->
          <div class="featurette" id="download">
             <table>
-               <tr><img src="something else.jpg" style='float:left'>
-                  <img src="something.JPG" style='float:right'>
+               <tr><img src="Images/Android Screenshot1.jpg" style='float:left'>
+                  <img src="Images/Android Screenshot2.JPG" style='float:right'>
                </tr>
             </table>
-            <h2 class="featurette-heading">the journey begins
+            <h2 class="featurette-heading">control your fate
                <span class="text-muted">in the palm of your hand</span>
             </h2>
-            <p class="lead">Currently, <span style="color: #7191d9">clari</span>find is found as an Android app.</p>
-         </div>
+
+            <p class="lead">Currently, <span style="color: #7191d9">clari</span>find is found as an Android app. Users may choose to upload or take new photos directly from their Android phones.</p>
+
+	</div>
          <hr class="featurette-divider">
          <!-- Fourth Featurette -->
          <div class="featurette" id="findus">
-            <img src="clarifindus.png">
+            <img src="Images/clarifindus.png">
             <h2 class="featurette-heading">Find Us:
                <span class="text-muted">The Developers</span>
             </h2>
@@ -163,16 +186,18 @@
                </div>
             </div>
          </footer>
+
       </div>
       <!-- /.container -->
       <!-- jQuery -->
       <script src="js/jquery.js"></script>
       <!-- Bootstrap Core JavaScript -->
       <script src="js/bootstrap.min.js"></script>
+	<script src="script.js"></script>
 
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJAMSkwFh_UL1KpSoE7S0s6YzdCOyZU-0&signed_in=true&callback=initMap">
-    </script>
-      <p>Hello World</p>
+	<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJAMSkwFh_UL1KpSoE7S0s6YzdCOyZU-0&signed_in=true&callback=initMap">
+        </script>
+  
    </body>
 </html>
