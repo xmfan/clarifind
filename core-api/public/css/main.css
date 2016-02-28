@@ -30,14 +30,14 @@ body {
     background-size: 100px;
     -o-background-size: cover;
     font-family: Montserrat;
-    
+
 }
 .container .logoo {
     padding-top: 60px;
 
     margin-left: auto;
     margin-right: auto;
-	
+
 }
 
 
@@ -50,13 +50,13 @@ img {
 
 .headline {
     font-family: Montserrat;
-    
+
 }
 
 
 .headline h2 {
     font-family: Montserrat;
-    
+
 }
 
 .headline h1 {
@@ -75,7 +75,7 @@ img {
     background: #fff;
     background: rgba(255,255,255,0.9);
     font-family: Montserrat;
-   
+
 }
 
 .featurette-divider {
