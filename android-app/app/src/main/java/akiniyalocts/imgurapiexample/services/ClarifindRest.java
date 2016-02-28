@@ -33,6 +33,7 @@ public class ClarifindRest {
             return response.body().string();
         } catch (Exception e) {
             System.out.println(e.toString());
+            return e.toString();
         }
     }
 }
