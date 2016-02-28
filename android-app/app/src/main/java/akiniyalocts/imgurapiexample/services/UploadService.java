@@ -2,6 +2,8 @@ package akiniyalocts.imgurapiexample.services;
 
 import android.content.Context;
 
+import java.io.*;
+
 import java.lang.ref.WeakReference;
 import java.io.IOException;
 
@@ -27,7 +29,10 @@ import okhttp3.OkHttpClient;
  * <p/>
  * Our upload service. This creates our restadapter, uploads our image, and notifies us of the response.
  */
+
+
 public class UploadService {
+
     public final static String TAG = UploadService.class.getSimpleName();
 
     private WeakReference<Context> mContext;
@@ -76,7 +81,7 @@ public class UploadService {
                         if (imageResponse.success) {
                             ClarifindRest test = new ClarifindRest();
 
-                            test.post("nigga im testing..............");
+                            test.post("nigga");
 
                             notificationHelper.createUploadedNotification(imageResponse);
                             //Posting the URL to the Node server
