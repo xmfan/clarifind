@@ -23,7 +23,7 @@ public class ClarifindRest {
             System.out.println(url);
             RequestBody body = RequestBody.create(MEDIA_TYPE_MARKDOWN, url);
             Request request = new Request.Builder()
-                    .url("http://35.14.149.201:4000/android")
+                    .url("http://localhost:4000/android")
                     .post(body)
                     .build();
 

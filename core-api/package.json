@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "Clarifind",
   "version": "0.0.0",
   "description": "Picture based lost and found application",
@@ -7,6 +6,7 @@
   "license": "WTFPL",
   "dependencies": {
     "async": "latest",
+    "body-parser": "^1.15.0",
     "express": "latest",
     "firebase": "^2.4.1",
     "request": "latest"
