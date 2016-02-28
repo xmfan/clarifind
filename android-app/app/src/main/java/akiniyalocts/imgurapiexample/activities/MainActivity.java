@@ -25,10 +25,17 @@ import butterknife.OnClick;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 
 public class MainActivity extends AppCompatActivity {
     public final static String TAG = MainActivity.class.getSimpleName();
-
+    public static final MediaType JSON
+            = MediaType.parse("application/json; charset=utf-8");
     /*
       These annotations are for ButterKnife by Jake Wharton
       https://github.com/JakeWharton/butterknife
