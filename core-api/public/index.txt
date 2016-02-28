@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Clarifind</title>
+	<meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+      <!-- Bootstrap Core CSS -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link rel="shortcut icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+      <!-- Custom CSS -->
+      <link href="css/main.css" rel="stylesheet">
+      <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" /> -->
+      <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+      
+ 
+       <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 50%;
+	margin-top: 32px;
+      }
+      #floating-panel {
+        position: relative;
+        top: 10px;
+        left: 12.5%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #7191d9;
+        text-align: center;
+        font-family: Montserrat;
+        line-height: 30px;
+        padding-left: 5px;
+      }
+      #floating-panel {
+        position: relative;
+        top: 0px;
+        left: 12.5%;
+        margin-left: 0px;
+	margin-right: 0px;
+        width: 350px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 0px;
+        border: 1px solid #999;
+      }
+      #latlng {
+        width: 112px;
+      }
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJAMSkwFh_UL1KpSoE7S0s6YzdCOyZU-0&signed_in=true"></script>
+	
+   </head>
+   <body>
+
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+         <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#">Clarifind</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav">
+                  <li>
+                     <a href="#backstory">The Back Story</a>
+                  </li>
+                  <li>
+                     <a href="#technical">The Technical</a>
+                  </li>
+                  <li>
+                     <a href="#download">Download</a>
+                  </li>
+                  <li>
+                     <a href="#findus">Find Us</a>
+                  </li>
+               </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+         </div>
+         <!-- /.container -->
+      </nav>
+
+
+	 <div id="map"></div>
+     <div id="floating-panel">
+      <input id="latlng" type="text" value="42.7018267,-84.5522118 ">
+      <input id="submit" type="button" value="Reverse Geocode">
+    </div>
+
+
+      <div class="sparc">
+      <div class="container">
+         <div class="logoo"><img src="Images/clarifind logo.png"></div>
+
+
+      </div>
+
+      <header class="header-image">
+         <div class="headline">
+            <div class="container">
+               <div class="loogo">
+                  <h2>lost something?<span style="color: #7191d9">clari</span>find it.</h2>
+               </div>
+            </div>
+         </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="container">
+         <hr class="featurette-divider">
+         <!-- First Featurette -->
+         <div class="featurette" id="backstory">
+            <img src="picturessss.png">
+            <h2 class="featurette-heading">losing is temporary
+               <span class="text-muted"><span style="color: #7191d9">clari</span>find is forever</span>
+            </h2>
+            <p class="lead">Clarifind recognizes the sentimental value of physical possessions, from that sweater from Grandma to that watch from Uncle Steve. Three university students decided that they wanted to end the struggle of losing personal belongings to the vast and unforgiving world of neglect and unworthy finders who pose as keepers. Users upload photos of both items they have lost and items that they have found and Clarifind matches their wanted items to items visually similar to those others have found.</p>
+         </div>
+         <hr class="featurette-divider">
+         <!-- Second Featurette -->
+         <div class="featurette" id="technical">
+            <img src="Images/clarifind logo.png">
+            <h2 class="featurette-heading">complex algorithms
+               <span class="text-muted">simplistic design</span>
+            </h2>
+            <p class="lead"><span style="color: #7191d9">clari</span>find is a user-friendly application that integrates a cohesive combination of many technologies. The web application is hosted on Firebase, which is also responsible for the databases of uploaded images of found items. Each image is processed through Clarifai which uses advanced image recognition to return similar images from the "found" database. Google Maps is harnessed to provide location data for each image, passed as a set of geographical coordinates and converted to a text-based location.</p>
+         </div>
+         <hr class="featurette-divider">
+         <!-- Third Featurette -->
+         <div class="featurette" id="download">
+            <table>
+               <tr><img src="Images/Android Screenshot1.jpg" style='float:left'>
+                  <img src="Images/Android Screenshot2.JPG" style='float:right'>
+               </tr>
+            </table>
+            <h2 class="featurette-heading">control your fate
+               <span class="text-muted">in the palm of your hand</span>
+            </h2>
+
+            <p class="lead">Currently, <span style="color: #7191d9">clari</span>find is found as an Android app. Users may choose to upload or take new photos directly from their Android phones.</p>
+
+	</div>
+         <hr class="featurette-divider">
+         <!-- Fourth Featurette -->
+         <div class="featurette" id="findus">
+            <img src="Images/clarifindus.png">
+            <h2 class="featurette-heading">Find Us:
+               <span class="text-muted">The Developers</span>
+            </h2>
+            <ul class="faces">
+               <li>
+                  <p class = "lead">Xin Ming Fan - <span class="text-muted">xmfan@uwaterloo.ca></p>
+                  <img src="Images/Xin Ming's Face.png">
+               </li>
+               <li>
+                  <p class = "lead">Matthew Tse - <span class="text-muted">mcotse@uwaterloo.ca</p>
+                  <img src="Images/Matt's Face.png">
+               </li>
+               <li>
+                  <p class = "lead">Amy Liu <span class="text-muted">- azliu@uwaterloo.ca</p>
+                  <img src="Images/Amy's Face.png">
+               </li>
+            </ul>
+         </div>
+         <hr class="featurette-divider">
+         <!-- Footer -->
+         <footer>
+            <div class="row">
+               <div class="col-lg-12">
+                  <p style="font-size:100%;">Copyright &copy;<span style="color: #7191d9">clari</span>find 2016</p>
+               </div>
+            </div>
+         </footer>
+
+      </div>
+      <!-- /.container -->
+      <!-- jQuery -->
+      <script src="js/jquery.js"></script>
+      <!-- Bootstrap Core JavaScript -->
+      <script src="js/bootstrap.min.js"></script>
+	<script src="script.js"></script>
+
+	<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJAMSkwFh_UL1KpSoE7S0s6YzdCOyZU-0&signed_in=true&callback=initMap">
+        </script>
+  
+   </body>
+</html>

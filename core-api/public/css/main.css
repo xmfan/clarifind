@@ -4,6 +4,8 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+
+
 body {
     margin-top: 30px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
@@ -12,7 +14,7 @@ body {
     display: block;
     width: 100%;
     text-align: center;
-    background: url('/Sparc-images/header photo 2.png') no-repeat center center scroll;
+    background: url('.png') no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: 580px;
@@ -33,7 +35,7 @@ body {
 
 }
 .container .logoo {
-    padding-top: 60px;
+    padding-top: 0px;
 
     margin-left: auto;
     margin-right: auto;
