@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".RecognitionActivity"
+    android:layout_alignParentBottom="true">
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/user_image"/>
+
+    <TextView
+        android:id="@+id/text_view"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_weight="0.20" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.02">
+
+        <Button
+            android:id="@+id/select_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight ="1"
+            android:background="#3d88ec"
+            android:text="@string/select_image"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="12dp" />
+
+
+        <Button
+            android:id="@+id/camera_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight ="1"
+            android:background="#3d88ec"
+            android:text="take picture"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:layout_margin="12dp"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+
+</LinearLayout>
+    <!--android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"-->
+<!-- From: file:/Users/mcotse/Dropbox/git/old/android-app/app/src/main/res/layout/activity_recognition.xml -->
