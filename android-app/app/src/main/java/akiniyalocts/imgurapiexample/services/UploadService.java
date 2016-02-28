@@ -73,7 +73,17 @@ public class UploadService {
                         Notify image was uploaded successfully
                         */
                         if (imageResponse.success) {
-                            notificationHelper.createUploadedNotification(imageResponse);
+                            //Posting the URL to the Node server
+                            OkHttpClient client = new OkHttpClient();
+                            String post(String url, String json) throws IOException {
+                                RequestBody body = RequestBody.create(JSON, json);
+                                Request request = new Request.Builder()
+                                        .url(http://35.14.149.201:4000/android)
+                                        .post(imageResponse)
+                                        .build();
+                                Response response = client.newCall(request).execute();
+                                return response.body().string();
+                            }
                         }
                     }
 

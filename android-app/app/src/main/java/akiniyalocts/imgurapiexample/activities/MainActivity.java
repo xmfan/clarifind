@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     EditText uploadDesc;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
+    OkHttpClient client = new OkHttpClient();
 
     private Upload upload; // Upload object containing image and meta data
     private File chosenFile; //chosen file from intent
