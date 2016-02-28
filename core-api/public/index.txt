@@ -129,7 +129,7 @@
             <h2 class="featurette-heading">losing is temporary
                <span class="text-muted"><span style="color: #7191d9">clari</span>find is forever</span>
             </h2>
-            <p class="lead">Clarifind recognizes the sentimental value of physical possessions, from that sweater from Grandma to that watch from Uncle Steve. Three university students decided that they wanted to end the struggle of losing personal belongings to the vast and unforgiving world of neglect and unworthy finders who pose as keepers. Users upload photos of both items they have lost and items that they have found and Clarifind matches their wanted items to items visually similuar to those others have found.</p>
+            <p class="lead">Clarifind recognizes the sentimental value of physical possessions, from that sweater from Grandma to that watch from Uncle Steve. Three university students decided that they wanted to end the struggle of losing personal belongings to the vast and unforgiving world of neglect and unworthy finders who pose as keepers. Users upload photos of both items they have lost and items that they have found and Clarifind matches their wanted items to items visually similar to those others have found.</p>
          </div>
          <hr class="featurette-divider">
          <!-- Second Featurette -->
