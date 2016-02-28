@@ -38,30 +38,30 @@ app.get('/', function(req, res) {
     request(options, callback);
 });
 
-app.post('/tag', function(req, res) {
+function tagUrl() {
     var options = {
         url: 'https://api.clarifai.com/v1/tag',
         headers: {
             'Authorization': 'Bearer ' + global.access_token
         }, 
         formData: {
-            url: ['http://www.clarifai.com/img/metro-north.jpg', 'http://www.clarifai.com/img/metro-north.jpg']
+            url: 'http://www.clarifai.com/img/metro-north.jpg'
         }
     };
 
     function callback(error, response, body) {
         if (error) console.log(error);
         else if (response.statusCode == 401) {
-            res.sendStatus(body);
+            console.log(body);
             //config.requestAccessToken;
             //request(options, callback);
         } else {
-            res.send(JSON.parse(body));
+            console.log(JSON.parse(body));
         }
     }
     
     request.post(options, callback);
-});
+};
 
 app.get('/android', function(req, res) {
     console.log('android endpoint');
