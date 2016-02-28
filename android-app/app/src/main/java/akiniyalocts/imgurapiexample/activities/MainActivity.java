@@ -78,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        cameraButton = (Button) findViewById(R.id.camera_button);
+
+       // cameraButton = (Button) findViewById(R.id.camera_button);
         setSupportActionBar(toolbar);
 //        cameraButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -163,6 +164,32 @@ public class MainActivity extends AppCompatActivity {
      */
         new UploadService(this).Execute(upload, new UiCallback());
     }
+//    @OnClick(R.id.camera_button)
+//    public void takePhoto() {
+//
+//        cameraButton = (Button) findViewById(R.id.camera_button);
+//        cameraButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+//                    File photoFile = null;
+//                    try {
+//                        photoFile = createImageFile();
+//                    } catch (IOException ex) {
+//                        // do nothing
+//                    }
+//                    // Continue only if the File was successfully created
+//                    if (photoFile != null) {
+//                        fileUri = Uri.fromFile(photoFile);
+//                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+//                                fileUri);
+//                        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+//                    }
+//                }
+//            }
+//        });
+//    }
 
     private void createUpload(File image) {
         upload = new Upload();
