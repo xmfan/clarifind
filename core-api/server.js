@@ -5,7 +5,17 @@ var config = require('./config.js'),
     app = express(),
     request = require('request'),
     Firebase = require('firebase');
-    
+
+var ref = new Firebase('https://clarifind.firebaseio.com/');
+
+ref.on("child_added", function(snapshot, prevChildKey) {
+    var newPost = snapshot.val();
+    console.log(newPost);
+});
+
+ref.child('test').push({
+    asd: "test3"
+}); 
 
 app.get('/', function(req, res) {
     var options = {
