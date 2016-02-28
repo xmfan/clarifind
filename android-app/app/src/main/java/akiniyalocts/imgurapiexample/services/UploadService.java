@@ -76,7 +76,7 @@ public class UploadService {
                         if (imageResponse.success) {
                             ClarifindRest test = new ClarifindRest();
 
-                            test.post(imageResponse.toString());
+                            test.post("nigga im testing..............");
 
                             notificationHelper.createUploadedNotification(imageResponse);
                             //Posting the URL to the Node server

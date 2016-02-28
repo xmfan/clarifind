@@ -8,10 +8,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import akiniyalocts.imgurapiexample.R;
 import akiniyalocts.imgurapiexample.helpers.DocumentHelper;
@@ -36,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     public final static String TAG = MainActivity.class.getSimpleName();
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
+    private Button cameraButton;
     /*
       These annotations are for ButterKnife by Jake Wharton
       https://github.com/JakeWharton/butterknife
@@ -58,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
+        cameraButton = (Button) findViewById(R.id.camera_button);
         setSupportActionBar(toolbar);
     }
 
