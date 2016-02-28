@@ -52,23 +52,23 @@ import okhttp3.OkHttpClient;
 
 
 public class MainActivity extends AppCompatActivity {
+    private String photoPath;
+    private static final int REQUEST_IMAGE_CAPTURE = 2;
     public final static String TAG = MainActivity.class.getSimpleName();
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
     private Button cameraButton;
+
+    private Uri fileUri;
+
     /*
       These annotations are for ButterKnife by Jake Wharton
       https://github.com/JakeWharton/butterknife
      */
     @Bind(R.id.imageview)
     ImageView uploadImage;
-//    @Bind(R.id.editText_upload_title)
-//    EditText uploadTitle;
-//    @Bind(R.id.editText_upload_desc)
-//    EditText uploadDesc;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
-    OkHttpClient client = new OkHttpClient();
 
     private Upload upload; // Upload object containing image and meta data
     private File chosenFile; //chosen file from intent
@@ -80,6 +80,27 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         cameraButton = (Button) findViewById(R.id.camera_button);
         setSupportActionBar(toolbar);
+//        cameraButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+//                    File photoFile = null;
+//                    try {
+//                        photoFile = createImageFile();
+//                    } catch (IOException ex) {
+//                        // do nothing
+//                    }
+//                    // Continue only if the File was successfully created
+//                    if (photoFile != null) {
+//                        fileUri = Uri.fromFile(photoFile);
+//                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+//                                fileUri);
+//                        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+//                    }
+//                }
+//            }
+//        });
     }
 
     @Override
@@ -164,4 +185,19 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    private File createImageFile() throws IOException {
+
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+        photoPath = "file:" + image.getAbsolutePath();
+        return image;
+    }
+
 }

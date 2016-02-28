@@ -2,11 +2,18 @@
 <items version="2" >
 
     <item
-        jar="/Users/mcotse/Dropbox/git/clarifind/android-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
+        jar="/Users/mcotse/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex dex="/Users/mcotse/Dropbox/git/clarifind/android-app/app/build/intermediates/pre-dexed/debug/classes-a9c12d0f28c244c29b45cd0872d903b20cfb445e.jar" />
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/Users/mcotse/Dropbox/git/clarifind/android-app/app/build/intermediates/pre-dexed/debug/okio-1.6.0-4953f9b83d8c7952c815c533dbef6873adc75dc2.jar" />
+    </item>
+    <item
+        jar="/Users/mcotse/Dropbox/git/clarifind/android-app/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1821601ddbec5ff125653097812823388700af74">
+        <dex dex="/Users/mcotse/Dropbox/git/clarifind/android-app/app/build/intermediates/pre-dexed/debug/classes-17736cd4804842719afc9da444107e16063be6d4.jar" />
     </item>
     <item
         jar="/Users/mcotse/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
@@ -37,11 +44,11 @@
         <dex dex="/Users/mcotse/Dropbox/git/clarifind/android-app/app/build/intermediates/pre-dexed/debug/okhttp-3.2.0-021cee0e6be834986e4309b0c44fec4ac452700d.jar" />
     </item>
     <item
-        jar="/Users/mcotse/Dropbox/git/clarifind/android-app/app/build/intermediates/exploded-aar/com.android.support/design/22.2.1/jars/classes.jar"
+        jar="/Users/mcotse/Dropbox/git/clarifind/android-app/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1821601ddbec5ff125653097812823388700af74">
-        <dex dex="/Users/mcotse/Dropbox/git/clarifind/android-app/app/build/intermediates/pre-dexed/debug/classes-17736cd4804842719afc9da444107e16063be6d4.jar" />
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="/Users/mcotse/Dropbox/git/clarifind/android-app/app/build/intermediates/pre-dexed/debug/classes-a9c12d0f28c244c29b45cd0872d903b20cfb445e.jar" />
     </item>
     <item
         jar="/Users/mcotse/Dropbox/git/clarifind/android-app/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
@@ -49,13 +56,6 @@
         revision="22.0.1"
         sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
         <dex dex="/Users/mcotse/Dropbox/git/clarifind/android-app/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-c787a19b76cbaa24faf8de687cd7d686e834791b.jar" />
-    </item>
-    <item
-        jar="/Users/mcotse/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="98476622f10715998eacf9240d6b479f12c66143">
-        <dex dex="/Users/mcotse/Dropbox/git/clarifind/android-app/app/build/intermediates/pre-dexed/debug/okio-1.6.0-4953f9b83d8c7952c815c533dbef6873adc75dc2.jar" />
     </item>
     <item
         jar="/Users/mcotse/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.4.0/f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2/picasso-2.4.0.jar"
