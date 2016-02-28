@@ -1,1 +1,190 @@
-hi
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+   <head>
+      <title>Clarifind</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- Bootstrap Core CSS -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link rel="shortcut icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+      <!-- Custom CSS -->
+      <link href="css/main.css" rel="stylesheet">
+      <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" /> -->
+      <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+      <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+      <script type="text/javascript">
+         var map = null;
+         										        
+         function GetMap()
+	 {
+         	// Initialize the map
+		map = new Microsoft.Maps.Map(document.getElementById("mapDiv"),{credentials:"vLLJYYW589P2auvvniMK~eLuINtowHrfAxjFNTBMfmQ~AvvWP1SwjchYgrUQ36G2g9U2pjj9Ii7H5HeVc6PJMPEYDCDG2QQe71abj529QW2o", mapTypeId:Microsoft.Maps.MapTypeId.road}); 
+	 }
+	 function ClickGeocode(credentials)
+         {
+                map.getCredentials(MakeGeocodeRequest);
+         }
+         function MakeGeocodeRequest(credentials)
+         {
+                var geocodeRequest = "http://dev.virtualearth.net/REST/v1/Locations?query=" + encodeURI(document.getElementById('txtQuery').value) + "&output=json&jsonp=GeocodeCallback&key=" + credentials;
+                CallRestService(geocodeRequest);
+         }
+         function GeocodeCallback(result) 
+                {
+        	alert("Found location: " + result.resourceSets[0].resources[0].name);
+
+            if (result &&
+                   result.resourceSets &&
+                   result.resourceSets.length > 0 &&
+                   result.resourceSets[0].resources &&
+                   result.resourceSets[0].resources.length > 0) 
+            {
+               // Set the map view using the returned bounding box
+               var bbox = result.resourceSets[0].resources[0].bbox;
+               var viewBoundaries = Microsoft.Maps.LocationRect.fromLocations(new Microsoft.Maps.Location(bbox[0], bbox[1]), new Microsoft.Maps.Location(bbox[2], bbox[3]));
+               map.setView({ bounds: viewBoundaries});
+
+               // Add a pushpin at the found location
+               var location = new Microsoft.Maps.Location(result.resourceSets[0].resources[0].point.coordinates[0], result.resourceSets[0].resources[0].point.coordinates[1]);
+               var pushpin = new Microsoft.Maps.Pushpin(location);
+               map.entities.push(pushpin);
+            }
+         }
+
+         function CallRestService(request) 
+         {
+            var script = document.createElement("script");
+            script.setAttribute("type", "text/javascript");
+            script.setAttribute("src", request);
+            document.body.appendChild(script);
+         }
+
+      </script>
+   </head>
+   <body onload="GetMap();">
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+         <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#">Clarifind</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav">
+                  <li>
+                     <a href="#backstory">The Back Story</a>
+                  </li>
+                  <li>
+                     <a href="#technical">The Technical</a>
+                  </li>
+                  <li>
+                     <a href="#download">Download</a>
+                  </li>
+                  <li>
+                     <a href="#findus">Find Us</a>
+                  </li>
+               </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+         </div>
+         <!-- /.container -->
+      </nav>
+      <div class="sparc">
+      <div class="container">
+         <div class="logoo"><img src="Images/clarifind logo.png"></div>
+      </div>
+      <header class="header-image">
+         <div class="headline">
+            <div class="container">
+               <div class="loogo">
+                  <h2>lost something?<span style="color: #7191d9">clari</span>find it.</h2>
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- Page Content -->
+      <div class="container">
+         <hr class="featurette-divider">
+         <!-- First Featurette -->
+         <div class="featurette" id="backstory">
+            <img src="picturessss.png">
+            <h2 class="featurette-heading">losing is temporary
+               <span class="text-muted"><span style="color: #7191d9">clari</span>find is forever</span>
+            </h2>
+            <p class="lead">LOREM IPSUMLOREM IPSUM  LOREM IPSUM  LOREM IPSUM  LOREM IPSUM  LOREM IPSUM  LOREM IPSUM  LOREM IPSUM.</p>
+         </div>
+         <hr class="featurette-divider">
+         <!-- Second Featurette -->
+         <div class="featurette" id="technical">
+            <img src="Images/clarifind logo.png">
+            <h2 class="featurette-heading">lorem ipsum
+               <span class="text-muted">more lorem ipsum</span>
+            </h2>
+            <p class="lead"><span style="color: #7191d9">clari</span>find is an entirely open-sourced, user-friendly LOREM IPSUM DANK MEMES</p>
+         </div>
+         <hr class="featurette-divider">
+         <!-- Third Featurette -->
+         <div class="featurette" id="download">
+            <table>
+               <tr><img src="something else.jpg" style='float:left'>
+                  <img src="something.JPG" style='float:right'>
+               </tr>
+            </table>
+            <h2 class="featurette-heading">the journey begins
+               <span class="text-muted">in the palm of your hand</span>
+            </h2>
+            <p class="lead">Currently, <span style="color: #7191d9">clari</span>find is found as an Android app.</p>
+         </div>
+         <hr class="featurette-divider">
+         <!-- Fourth Featurette -->
+         <div class="featurette" id="findus">
+            <img src="clarifindus.png">
+            <h2 class="featurette-heading">Find Us:
+               <span class="text-muted">The Developers</span>
+            </h2>
+            <ul class="faces">
+               <li>
+                  <p class = "lead">Xin Ming Fan - <span class="text-muted">xmfan@uwaterloo.ca></p>
+                  <img src="Images/Xin Ming's Face.png">
+               </li>
+               <li>
+                  <p class = "lead">Matthew Tse - <span class="text-muted">mcotse@uwaterloo.ca</p>
+                  <img src="Images/Matt's Face.png">
+               </li>
+               <li>
+                  <p class = "lead">Amy Liu <span class="text-muted">- azliu@uwaterloo.ca</p>
+                  <img src="Images/Amy's Face.png">
+               </li>
+            </ul>
+         </div>
+         <hr class="featurette-divider">
+         <!-- Footer -->
+         <footer>
+            <div class="row">
+               <div class="col-lg-12">
+                  <p style="font-size:100%;">Copyright &copy;<span style="color: #7191d9">clari</span>find 2016</p>
+               </div>
+            </div>
+         </footer>
+      </div>
+      <!-- /.container -->
+      <!-- jQuery -->
+      <script src="js/jquery.js"></script>
+      <!-- Bootstrap Core JavaScript -->
+      <script src="js/bootstrap.min.js"></script>
+      <div id='mapDiv' style="position:relative; width:400px; height:400px;"></div>
+      <input id="txtQuery" type="text" value="Waterloo"/>
+      <input type="button" value="Geocode" onclick="ClickGeocode()"/> 
+      <p>Hello World</p>
+   </body>
+</html>
