@@ -19,11 +19,11 @@ ref.on("child_added", function(snapshot, prevChildKey) {
 });
 */
 
-function pushImage(url) {
+function pushImage(url, tags, address) {
     ref.push({
         url: url,
-        tags: ['train'],
-        address: '200 University Ave, Waterloo'
+        tags: tags,
+        address: address 
     });
 } 
 
@@ -48,14 +48,14 @@ app.get('/', function(req, res) {
     request(options, callback);
 });
 
-function tagUrl(string) {
+function tagUrl(picArray, res) {
     var options = {
         url: 'https://api.clarifai.com/v1/tag',
         headers: {
             'Authorization': 'Bearer ' + global.access_token
         }, 
         formData: {
-            url: 'http://www.clarifai.com/img/metro-north.jpg'
+            url: picArray 
         }
     };
 
@@ -63,21 +63,24 @@ function tagUrl(string) {
         if (error) console.log(error);
         else if (response.statusCode == 401) {
             console.log(body);
-            //config.requestAccessToken;
-            //request(options, callback);
         } else {
-            pushImage(string);
-            return JSON.parse(body);
+            var resp = JSON.parse(body);
+            var images = resp.results;
+            for (var i=0; i<images.length; i++) {
+                pushImage(images[i].url, images[i].result.tag.classes, '200 University Ave');
+            }
+            res.send(JSON.parse(body));
         }
     }
     
     request.post(options, callback);
 };
 
-app.post('/android', function(req, res) {
+app.post('/populate', function(req, res) {
     console.log(req.params);
     console.log(req.data);
-    res.send('android endpoint reached');
+    var picArray = ["http://i.imgur.com/N3eQ0Ff.jpg", "http://i.imgur.com/7YbEvFr.jpg","http://i.imgur.com/AcL8teC.jpg","http://i.imgur.com/GZDoxNc.jpg","http://i.imgur.com/8eQsB03.png","http://i.imgur.com/IylryVE.jpg","http://i.imgur.com/FH4jIik.jpg","http://i.imgur.com/2tSLIVN.jpg","http://i.imgur.com/cFKQkkE.jpg","http://i.imgur.com/z8TRbXo.jpg","http://i.imgur.com/X9R55DO.jpg","http://i.imgur.com/tZXQFw5.jpg", "http://i.imgur.com/k7HAN6X.jpg"];
+    tagUrl(picArray, res);
 });
 
 app.get('/getImages', function(req, res) {
