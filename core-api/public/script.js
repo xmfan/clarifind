@@ -18,6 +18,7 @@ function geocodePlaceId(geocoder, map, infowindow) {
   var placeId = document.getElementById('place-id').value;
   geocoder.geocode({'placeId': placeId}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
+        console.log(results);
       if (results[0]) {
         map.setZoom(11);
         map.setCenter(results[0].geometry.location);

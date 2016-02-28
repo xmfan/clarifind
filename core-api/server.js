@@ -17,8 +17,9 @@ ref.on("child_added", function(snapshot, prevChildKey) {
 
 function pushImage(url) {
     ref.push({
-        url: 'http://www.clarifai.com/img/metro-north.jpg',
-        tags: ['train']
+        url: url,
+        tags: ['train'],
+        address: '200 University Ave, Waterloo'
     });
 } 
 
@@ -61,15 +62,17 @@ function tagUrl(string) {
             //config.requestAccessToken;
             //request(options, callback);
         } else {
-            console.log(JSON.parse(body));
+            pushImage(string);
+            return JSON.parse(body);
         }
     }
     
     request.post(options, callback);
 };
 
-app.get('/android', function(req, res) {
-    console.log('android endpoint');
+app.post('/android', function(req, res) {
+    console.log(req.data);
+    tagUrl(req.data);
     res.send('android endpoint reached');
 });
 
