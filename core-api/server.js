@@ -4,7 +4,7 @@ var config = require('./config.js'),
     express = require('express'),
     app = express(),
     request = require('request'),
-    curl = require('node-curl');
+    Firebase = require('firebase');
     
 
 app.get('/', function(req, res) {

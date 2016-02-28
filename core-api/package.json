@@ -1,16 +1,17 @@
 {
-    "name": "Clarifind",
-    "version": "0.0.0",
-    "description": "Picture based lost and found application",
-    "author": "Songifai",
-    "license": "WTFPL",
-    "dependencies": {
-        "async": "latest",
-        "express": "latest",
-        "request": "latest",
-        "node-curl": "latest"
-    },
-    "engines": {
-        "node": "0.10.37"
-    }
+  "name": "Clarifind",
+  "version": "0.0.0",
+  "description": "Picture based lost and found application",
+  "author": "Songifai",
+  "license": "WTFPL",
+  "dependencies": {
+    "async": "latest",
+    "express": "latest",
+    "firebase": "^2.4.1",
+    "node-curl": "latest",
+    "request": "latest"
+  },
+  "engines": {
+    "node": "0.10.37"
+  }
 }
