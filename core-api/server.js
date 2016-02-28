@@ -8,14 +8,19 @@ var config = require('./config.js'),
 
 var ref = new Firebase('https://clarifind.firebaseio.com/');
 
+/*
 ref.on("child_added", function(snapshot, prevChildKey) {
     var newPost = snapshot.val();
     console.log(newPost);
 });
+*/
 
-ref.child('test').push({
-    asd: "test3"
-}); 
+function pushImage(url) {
+    ref.push({
+        url: 'http://www.clarifai.com/img/metro-north.jpg',
+        tags: ['train']
+    });
+} 
 
 app.get('/', function(req, res) {
     var options = {
@@ -38,7 +43,7 @@ app.get('/', function(req, res) {
     request(options, callback);
 });
 
-function tagUrl() {
+function tagUrl(string) {
     var options = {
         url: 'https://api.clarifai.com/v1/tag',
         headers: {
@@ -67,6 +72,34 @@ app.get('/android', function(req, res) {
     console.log('android endpoint');
     res.send('android endpoint reached');
 });
+
+app.get('/getImages', function(req, res) {
+    ref.once('value', function(snapshot) {
+        var images = [];
+        var data = snapshot.val();
+        for (var key in data) {
+            images.push(data[key]);
+        }
+        res.send(images);
+    }, function (errorObject) {
+        console.log('The read failed: ' + errorObject.code);
+        res.send(null);
+    });
+});
+
+function getAllImages() {
+    ref.once("value", function(snapshot) {
+        var images = [];
+        var data = snapshot.val();
+        for (var key in data) {
+            images.push(data[key]);
+        }
+        return images;
+    }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+        return null;
+    });
+}
 
 app.listen(4000, function() {
     console.log('Server running on: 4000');
