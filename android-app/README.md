@@ -1,30 +1,24 @@
-# clarifai-android-starter
-This is a simple project to get you started using the Clarifai API in Android apps. It uses the [Clarifai Java Client](https://github.com/Clarifai/clarifai-java) to perform image recognition on photos stored on your device. Full Clarifai API documentation can be found at [developer.clarifai.com](http://developer.clarifai.com/).
+# imgur-android
 
-<img src="https://i.imgur.com/56EUw5D.jpg" width="200">
+<p>
+  A basic upload tutorial using imgur API v3 on Android. Select an image via an intent, then upload that image with or without a title/description.<br><br>
+  I'm assuming you follow the official API instructions from imgur: <a href="https://api.imgur.com/">here</a><br><br>
+  All API calls are done using <a href="http://square.github.io/retrofit/">Retrofit</a>
+</p>
 
-## Building and Running
+<h2>Configuration</h2
+<p>Just about everything you need is setup for you.<br>
+<ul>
+  <li>Import the project into Android Studio</li>
+  <li>In <b>Constants.java</b> add your imgur Client API key in the static field: <i>MY_IMGUR_CLIENT_ID</i></li>
+</ul>
+</p>
 
-1. Go to [developer.clarifai.com/applications](https://developer.clarifai.com/applications), click
-   on your application, and copy the "Client ID" and "Client Secret" values (if you don't already
-   have an account or application, you'll need to create them first).
+<h2>Results</h2>
+<p>
+  <img src="http://i.imgur.com/sSM5Hja.jpg" height=500 width=300></img>
+  <img src="http://i.imgur.com/CHrRpu6.png" height=500 width=300></img>
+  <img src="http://i.imgur.com/0LtqQXs.png" height=500 width=300></img>
+</p>
 
-   Replace the values of `CLIENT_ID` and `CLIENT_SECRET` in
-   [Credentials.java](app/src/main/java/com/clarifai/androidstarter/Credentials.java) with the ones
-   you copied.
 
-2. Open the project in Android Studio and press the "Play" button in the toolbar to build,
-   install, and run the app.
-
-   Alternately, you can build and install from the command-line with:
-  ```./gradlew installDebug```
-
-## RecognitionActivity
-[RecognitionActivity](app/src/main/java/com/clarifai/androidstarter/RecognitionActivity.java) is a simple  Activity that prompts the user to select a photo from their photo library and then sends it to the Clarifai API for tagging. This Activity demonstrates how to prepare the image for sending to Clarifai and how to handle the response.
-
-## Next steps
-Feel free to use this project as a base for building your app. You can also use the ClarifaiClient from other projects by adding the following dependency to your [app/build.gradle](app/build.gradle) file:
-
-```compile 'com.clarifai:clarifai-api-java:1.2.0'```
-
-More information on the client and usage examples can be found [here](https://github.com/Clarifai/clarifai-java).
