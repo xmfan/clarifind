@@ -4,7 +4,12 @@ var config = require('./config.js'),
     express = require('express'),
     app = express(),
     request = require('request'),
-    Firebase = require('firebase');
+    Firebase = require('firebase'),
+    bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 
 var ref = new Firebase('https://clarifind.firebaseio.com/');
 
