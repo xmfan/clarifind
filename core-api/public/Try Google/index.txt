@@ -1,11 +1,11 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
    <head>
       <title>Clarifind</title>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 
       <meta name="description" content="">
       <meta name="author" content="">
@@ -17,7 +17,8 @@
       <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" /> -->
       <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
       <script src="script.js"></script>
-      <style>
+      <script type="text/javascript" src="https://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+       <style>
       html, body {
         height: 100%;
         margin: 0;
@@ -26,10 +27,26 @@
       #map {
         height: 100%;
       }
-    </style>
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+    </style>  
    </head>
    <body>
-
+   <div id="floating-panel">
+      <input id="address" type="textbox" value="Sydney, NSW">
+      <input id="submit" type="button" value="Geocode">
+    </div>
     <div id="map"></div>
 
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -149,8 +166,8 @@
       <script src="js/jquery.js"></script>
       <!-- Bootstrap Core JavaScript -->
       <script src="js/bootstrap.min.js"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUM4LLBDSVgwxj2LHo0jEdMDvVbuB7llY&signed_in=true&callback=initMap">
+	 <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&signed_in=true&callback=initMap">
     </script>
       <p>Hello World</p>
    </body>
