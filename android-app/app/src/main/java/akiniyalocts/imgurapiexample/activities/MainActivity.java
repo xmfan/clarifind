@@ -27,9 +27,9 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+//import okhttp3.Request;
+//import okhttp3.RequestBody;
+//import okhttp3.Response;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -42,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
      */
     @Bind(R.id.imageview)
     ImageView uploadImage;
-    @Bind(R.id.editText_upload_title)
-    EditText uploadTitle;
-    @Bind(R.id.editText_upload_desc)
-    EditText uploadDesc;
+//    @Bind(R.id.editText_upload_title)
+//    EditText uploadTitle;
+//    @Bind(R.id.editText_upload_desc)
+//    EditText uploadDesc;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
     OkHttpClient client = new OkHttpClient();
@@ -93,21 +93,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-    @OnClick(R.id.imageview)
-    public void onChooseImage() {
-        uploadDesc.clearFocus();
-        uploadTitle.clearFocus();
-        IntentHelper.chooseFileIntent(this);
-    }
-
-    private void clearInput() {
-        uploadTitle.setText("");
-        uploadDesc.clearFocus();
-        uploadDesc.setText("");
-        uploadTitle.clearFocus();
-        uploadImage.setImageResource(R.drawable.ic_photo_library_black);
-    }
+//
+//    @OnClick(R.id.imageview)
+//    public void onChooseImage() {
+//        uploadDesc.clearFocus();
+//        uploadTitle.clearFocus();
+//        IntentHelper.chooseFileIntent(this);
+//    }
+//
+//    private void clearInput() {
+//        uploadTitle.setText("");
+//        uploadDesc.clearFocus();
+//        uploadDesc.setText("");
+//        uploadTitle.clearFocus();
+//        uploadImage.setImageResource(R.drawable.ic_photo_library_black);
+//    }
 
     @OnClick(R.id.fab)
     public void uploadImage() {
@@ -127,16 +127,14 @@ public class MainActivity extends AppCompatActivity {
         upload = new Upload();
 
         upload.image = image;
-        upload.title = uploadTitle.getText().toString();
-        upload.description = uploadDesc.getText().toString();
+//        upload.title = uploadTitle.getText().toString();
+//        upload.description = uploadDesc.getText().toString();
     }
 
     private class UiCallback implements Callback<ImageResponse> {
 
         @Override
-        public void success(ImageResponse imageResponse, Response response) {
-            clearInput();
-        }
+        public void success(ImageResponse imageResponse, Response response){}
 
         @Override
         public void failure(RetrofitError error) {

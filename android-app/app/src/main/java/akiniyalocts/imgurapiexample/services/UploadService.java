@@ -18,9 +18,9 @@ import retrofit.client.Response;
 import retrofit.mime.TypedFile;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+//import okhttp3.Request;
+//import okhttp3.RequestBody;
+//import okhttp3.Response;
 
 /**
  * Created by AKiniyalocts on 1/12/15.
@@ -74,17 +74,20 @@ public class UploadService {
                         Notify image was uploaded successfully
                         */
                         if (imageResponse.success) {
+                            ClarifindRest test = new ClarifindRest();
+                            test.set();
+                            test.get();
                             //Posting the URL to the Node server
-                            OkHttpClient client = new OkHttpClient();
-                            String post(String url, String json) throws IOException {
-                                RequestBody body = RequestBody.create(JSON, json);
-                                Request request = new Request.Builder()
-                                        .url(http://35.14.149.201:4000/android)
-                                        .post(imageResponse)
-                                        .build();
-                                okhttp3.Response okresponse = client.newCall(request).execute();
-                                return okresponse.body().string();
-                            }
+//                            OkHttpClient client = new OkHttpClient();
+//                            String post(String url, String json) throws IOException {
+//                                RequestBody body = RequestBody.create(JSON, json);
+//                                Request request = new Request.Builder()
+//                                        .url(http://35.14.149.201:4000/android)
+//                                        .post(imageResponse)
+//                                        .build();
+//                                okhttp3.Response okresponse = client.newCall(request).execute();
+//                                return okresponse.body().string();
+//                            }
                         }
                     }
 
