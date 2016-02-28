@@ -10,7 +10,6 @@ var config = require('./config.js'),
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
 var ref = new Firebase('https://clarifind.firebaseio.com/');
 
 /*
@@ -76,8 +75,14 @@ function tagUrl(string) {
 };
 
 app.post('/android', function(req, res) {
+<<<<<<< Updated upstream
     console.log(req.data);
     tagUrl(req.data);
+=======
+console.log(req.params);
+console.log(req.data);
+    console.log('android endpoint: ' + req.data);
+>>>>>>> Stashed changes
     res.send('android endpoint reached');
 });
 
@@ -112,3 +117,5 @@ function getAllImages() {
 app.listen(4000, function() {
     console.log('Server running on: 4000');
 });
+
+//app.use(express.bodyParser());

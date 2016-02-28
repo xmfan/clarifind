@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        cameraButton = (Button) findViewById(R.id.camera_button);
+        //cameraButton = (Button) findViewById(R.id.camera_button);
         setSupportActionBar(toolbar);
     }
 
