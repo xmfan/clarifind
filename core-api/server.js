@@ -7,8 +7,8 @@ var config = require('./config.js'),
     Firebase = require('firebase'),
     bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('public'));
 
 var ref = new Firebase('https://clarifind.firebaseio.com/');
 
@@ -75,14 +75,8 @@ function tagUrl(string) {
 };
 
 app.post('/android', function(req, res) {
-<<<<<<< Updated upstream
+    console.log(req.params);
     console.log(req.data);
-    tagUrl(req.data);
-=======
-console.log(req.params);
-console.log(req.data);
-    console.log('android endpoint: ' + req.data);
->>>>>>> Stashed changes
     res.send('android endpoint reached');
 });
 
