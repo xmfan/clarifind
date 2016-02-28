@@ -3,6 +3,7 @@ package akiniyalocts.imgurapiexample.services;
 import android.content.Context;
 
 import java.lang.ref.WeakReference;
+import java.io.IOException;
 
 import akiniyalocts.imgurapiexample.Constants;
 import akiniyalocts.imgurapiexample.helpers.NotificationHelper;
@@ -16,10 +17,10 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.mime.TypedFile;
 import okhttp3.MediaType;
-//import okhttp3.OkHttpClient;
-//import okhttp3.Request;
-//import okhttp3.RequestBody;
-//import okhttp3.Response;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
  * Created by AKiniyalocts on 1/12/15.
@@ -81,8 +82,8 @@ public class UploadService {
                                         .url(http://35.14.149.201:4000/android)
                                         .post(imageResponse)
                                         .build();
-                                Response response = client.newCall(request).execute();
-                                return response.body().string();
+                                okhttp3.Response okresponse = client.newCall(request).execute();
+                                return okresponse.body().string();
                             }
                         }
                     }
