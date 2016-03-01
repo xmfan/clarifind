@@ -1,6 +1,8 @@
 
 #Spartahack2016 Clarifind
 
+![alt text](http://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/354/560/datas/gallery.jpg "Clarifind Logo")
+
 ##The Backstory
 Clarifind recognizes the sentimental value of physical possessions, from that sweater from Grandma to that watch from Uncle Steve. Three university students decided that they wanted to end the struggle of losing personal belongings to the vast and unforgiving world of neglect and unworthy finders who pose as keepers. Users upload photos of both items they have lost and items that they have found and Clarifind matches their wanted items to items visually similar to those others have found.
 
