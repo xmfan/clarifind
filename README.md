@@ -14,4 +14,4 @@ Clarifind is found as an Android app. Users may choose to upload or take new pho
 ```java``` ```html``` ```css``` ```Clarifai API``` ```Firebase API```
 
 ##Devpost
-(http://devpost.com/software/clarifind)
+[Devpost link](http://devpost.com/software/clarifind)
